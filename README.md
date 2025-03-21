@@ -6,7 +6,7 @@
 <!-- [![MIT License][license-shield]][license-url] -->
 
 
-<!-- PROJECT LOGO --> -->
+<!-- PROJECT LOGO  -->
 <br />
 <p align="center">
   <a href=https://github.com/Berlingithub/Financify.git>
