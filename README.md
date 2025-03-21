@@ -6,10 +6,10 @@
 <!-- [![MIT License][license-shield]][license-url] -->
 
 
-PROJECT LOGO -->
+<!-- PROJECT LOGO --> -->
 <br />
 <p align="center">
-  <a href=https://github.com/Berlingithub/Financify/tree/main>
+  <a href=https://github.com/Berlingithub/Financify.git>
     <img src="client/src/images/favicon.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -95,7 +95,7 @@ This is how you can access this project locally.To get a local copy up and runni
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/Ishaan-10/Fintech-app.git
+   git clone https://github.com/Berlingithub/Financify.git
    ```
 2. Install NPM packages in client and server respectively
    ```sh
