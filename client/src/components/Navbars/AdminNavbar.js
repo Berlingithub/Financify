@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { useLocation } from "react-router-dom";
 import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
 import { logout } from "API";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 import routes from "routes.js";
 
@@ -19,7 +19,7 @@ function Header() {
     };
     document.body.appendChild(node);
   };
-  const history = useHistory();
+  const navigate = useNavigate();
   const [loading,setLoading]=React.useState(false);
   
   const logoutUser =async(e)=>{
@@ -29,7 +29,7 @@ function Header() {
       console.log("logged out")
       setLoading(false)
       console.log(res.data.redirectUrl)
-      history.push("/home")
+      navigate.push("/home")
     }).catch(e=>{
       setLoading(false)
       console.log(e.message)

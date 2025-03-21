@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, FormWrap, Icon, FormContent, Form, FormInput, FormH1, FormLabel, FormButton, Text } from './SignupElements'
 import { signUp } from '../API';
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { Spinner } from "reactstrap";
 
 import img1 from "images/favicon.png";
@@ -13,13 +13,13 @@ const Signup = () => {
   const [name,setName]=React.useState();
   const [loading, setLoading] = React.useState(false);
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const formSubmitHandler= async (e)=>{
     setLoading(true)
     await signUp({email,password,name}).then(res=>{
       setLoading(false);
-      history.push("/admin/dashboard");
+      navigate.push("/admin/dashboard");
     }).catch(e=>{
       console.log(e.message)
       setLoading(false);

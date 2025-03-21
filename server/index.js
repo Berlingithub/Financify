@@ -1,3 +1,4 @@
+process.removeAllListeners('warning');
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
@@ -18,6 +19,12 @@ const overview = require('./Routes/overview');
 const incomeSource = require('./Routes/incomeSources');
 const recurring = require('./Routes/recurringPayments');
 var cors = require('cors');
+
+
+
+console.log(process.env.DATABASE_KEY);
+
+
 const { isLoggedIn } = require('./middlewares');
 app.use(cors({
   origin: "http://localhost:3000",
@@ -26,7 +33,9 @@ app.use(cors({
 }));
 app.use(morgan('tiny'));
 const db = mongoose.connection;
-mongoose.connect(process.env.DATABASE_KEY, { useNewUrlParser: true, useUnifiedTopology: true });
+const mongoURI = 'mongodb+srv://GarryHost:Arron2012@cluster0.zjyx1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+// mongoose.connect(process.env.DATABASE_KEY, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   console.log("Database Connected")

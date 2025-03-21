@@ -12,14 +12,14 @@ import {
   Text,
 } from "./SigninElements";
 import { signIn } from "API";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 import { Spinner } from "reactstrap";
 import { Link } from "react-router-dom";
 
 import img1 from "images/favicon.png";
 
 const Signin = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [email, setEmail] = React.useState();
   const [password, setPassword] = React.useState();
   const [loading, setLoading] = React.useState(false);
@@ -30,7 +30,7 @@ const Signin = () => {
     await signIn({ email, password })
       .then((res) => {
         setLoading(false);
-        history.push("/admin/dashboard");
+        navigate.push("/admin/dashboard");
       })
       .catch((e) => {
         setLoading(false);

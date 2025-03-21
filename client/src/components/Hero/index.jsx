@@ -13,18 +13,18 @@ import {
 } from "./HeroElements";
 import { Button } from "../ButtonElements";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router";
+import { useNavigate } from "react-router";
 
 
 const Hero = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
     setHover(!hover);
   };
   const redirectSignUp=()=>{
-    history.push("/signup");
+    navigate.push("/signup");
   }
 
   return (

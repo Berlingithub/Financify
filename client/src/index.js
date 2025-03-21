@@ -1,7 +1,7 @@
 import React,{createContext} from "react";
 import ReactDOM from "react-dom";
 
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Route,  Redirect } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/animate.min.css";
@@ -18,15 +18,15 @@ import NotFound from './components/NotFound';
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
+   
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
       <Route path='/' component={Home} exact />
       <Route path='/home' component={Home} exact />
       <Route path='/signin' component={SigninPage} exact />
       <Route path='/signup' component={SignupPage} exact />
       <Route component={NotFound} />
-      <Redirect from="/" to="/home" />
-    </Switch>
+      < Navigate to="/home" />
+   
   </BrowserRouter>,
   document.getElementById("root")
 );
