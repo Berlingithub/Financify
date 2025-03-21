@@ -38,7 +38,7 @@ const mongoURI = 'mongodb+srv://GarryHost:Arron2012@cluster0.zjyx1.mongodb.net/?
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-  console.log("Database Connected")
+  console.log("Database Connected!")
 });
 
 const secret = process.env.secret || 'randomsecret';

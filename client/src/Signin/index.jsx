@@ -12,7 +12,7 @@ import {
   Text,
 } from "./SigninElements";
 import { signIn } from "API";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { Spinner } from "reactstrap";
 import { Link } from "react-router-dom";
 
@@ -25,23 +25,35 @@ const Signin = () => {
   const [loading, setLoading] = React.useState(false);
 
   const formSubmitHandler = async (e) => {
-    setLoading(true);
     e.preventDefault();
-    await signIn({ email, password })
-      .then((res) => {
-        setLoading(false);
-        navigate.push("/admin/dashboard");
-      })
-      .catch((e) => {
-        setLoading(false);
-      });
+    setLoading(true);
+    // await signIn({ email, password })
+    //   .then((res) => {
+    //     setLoading(false);
+    //     navigate("/admin/dashboard");
+    //   })
+    //   .catch((e) => {
+    //     setLoading(false);
+    //   });  
+
+    try {
+      const response = await signIn({ email, password });
+      console.log("Signin response:", response); // Log the response
+      console.log("Navigating to /admin/dashboard"); // Debugging
+      navigate("/admin/dashboard"); // Navigate after successful sign-in
+    } catch (e) {
+      console.log("Signin error:", e.message); // Log the error
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (loading) {
     return (
       <div>
         <Spinner animation="border" role="status" className="">
-          <span className="visually-hidden">Loading...</span>
+          {/* <span className="visually-hidden">Loading...</span>  */}
+          Loading...
         </Spinner>
       </div>
     );
@@ -53,7 +65,7 @@ const Signin = () => {
             <FormWrap>
               <Icon to="/"><img src={img1} height="30px" width="30px"></img>Financify</Icon>
               <FormContent>
-                <Form>
+                <Form onSubmit={formSubmitHandler}>
                   <FormH1>Sign in to your account</FormH1>
                   <FormLabel htmlFor="for">Email</FormLabel>
                   <FormInput
@@ -68,7 +80,7 @@ const Signin = () => {
                     required
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <FormButton onClick={formSubmitHandler}>Continue</FormButton>
+                  <FormButton type="submit">Continue</FormButton>
                   <Link to="/signup" className="text-center mt-4">Don't have an account?</Link>
                 </Form>
               </FormContent>

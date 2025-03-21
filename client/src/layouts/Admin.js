@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { useLocation, Route, Routes } from "react-router-dom";
+import { useLocation, Route, Routes, Navigate } from "react-router-dom";
 
 import Sidebar from "components/Sidebar/Sidebar";
 import AdminNavbar from "components/Navbars/AdminNavbar";
@@ -16,13 +16,16 @@ function Admin() {
   const [hasImage, setHasImage] = React.useState(true);
   const location = useLocation();
   const mainPanel = React.useRef(null);
+
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
             path={prop.layout + prop.path}
-            render={(props) => <prop.component {...props} />}
+            // path={prop.path}
+            element={<prop.component />}
+            // render={(props) => <prop.component {...props} />} 
             key={key}
           />
         );
@@ -51,7 +54,10 @@ function Admin() {
         <div className="main-panel" ref={mainPanel}>
           <AdminNavbar />
           <div className="content">
-            <Routes>{getRoutes(routes)}</Routes>
+            <Routes> 
+              {getRoutes(routes)}
+              <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />    
+              </Routes>
           </div>
           {/* <Footer /> */}
         </div>

@@ -13,7 +13,7 @@ import {
 } from "./HeroElements";
 import { Button } from "../ButtonElements";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 
 const Hero = () => {
@@ -24,7 +24,7 @@ const Hero = () => {
     setHover(!hover);
   };
   const redirectSignUp=()=>{
-    navigate.push("/signup");
+    navigate("/signup");
   }
 
   return (
@@ -41,8 +41,10 @@ const Hero = () => {
         <HeroBtnWrapper>
         <Button onMouseEnter={onHover}
                 onMouseLeave={onHover} 
-                primary='true' 
-                dark='true' 
+                // primary='true'
+                $primary 
+                // dark='true' 
+                $dark
                 smooth={true} 
                 duration={500} 
                 spy={true} 

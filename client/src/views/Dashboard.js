@@ -41,19 +41,32 @@ function Dashboard() {
   const [data, setData] = useState({});
   const IncomeTime = moment(data.monthlyIncomeDate).format('DD') 
   const TimeNow = moment().format('DD')
-  let diff = TimeNow-IncomeTime
+  let diff = TimeNow-IncomeTime;
   if(diff<0){
-    diff = 30-(Math.abs((IncomeTime-TimeNow)))
+    // diff = 30-(Math.abs((IncomeTime-TimeNow)))
+    diff = moment().daysInMonth()- Math.abs(diff);
   }
 
+  // const getData = async () => {
+  //   await getOverview().then(res => {
+  //     console.log(res.data)
+  //     setData(res.data)
+  //   }).catch(e => {
+  //     console.log(e.message)
+  //   })
+  // }
+
   const getData = async () => {
-    await getOverview().then(res => {
-      console.log(res.data)
-      setData(res.data)
-    }).catch(e => {
-      console.log(e.message)
-    })
-  }
+    try {
+      const res = await getOverview();
+      console.log("API Response:", res.data);
+      setData(res.data);
+    } catch (e) {
+      console.log("Error fetching data:", e.message);
+    }
+  };
+  
+
   const deleteTrans = async (id) => {
     const data = { transaction_id: id }
     deleteTransaction(data).then(async res => {
@@ -92,7 +105,7 @@ function Dashboard() {
               <Card.Footer>
                 <hr></hr>
                 <div className="stats">
-                  <i className="far fa-calendar-alt mr-1"></i>
+                  <i className="far fa-calendar-alt mr-1"></i> 
                   This Month
                 </div>
               </Card.Footer>
@@ -144,7 +157,8 @@ function Dashboard() {
               <Card.Footer>
                 <hr></hr>
                 <div className="stats">
-                  <i class="far fa-money-bill-alt mr-1"></i>
+                  {/* <i class="far fa-money-bill-alt mr-1"></i> */}
+                  <i className="far fa-money-bill-alt mr-1"></i> 
                   This Month
                 </div>
               </Card.Footer>
@@ -286,6 +300,7 @@ function Dashboard() {
                     <tbody>
                       {data.goals?.map((goal, index) => {
                         return <OverviewGoalsRow
+                          key={index}
                           goal={goal.goal}
                         />
                       })}

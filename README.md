@@ -1,15 +1,15 @@
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FIshaan-10%2FFINANCIFY&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FIshaan-10%2FFINANCIFY&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true)](https://hits.seeyoufarm.com) -->
 <!-- [![MIT License][license-shield]][license-url] -->
 
 
-<!-- PROJECT LOGO -->
+PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/Ishaan-10/Fintech-app">
+  <a href=https://github.com/Berlingithub/Financify/tree/main>
     <img src="client/src/images/favicon.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -54,7 +54,7 @@
 </details>
 
 
- -->
+
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <p>
