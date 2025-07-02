@@ -125,6 +125,23 @@ This is how you can access this project locally.To get a local copy up and runni
 
 
 
+### Project Structure ###
+
+Financify/
+└── Financify-main/
+    ├── client/                # React frontend
+    │   ├── public/
+    │   ├── src/
+    │   │   ├── ...
+    │   │   └── index.js
+    ├── Server/                # Express backend
+    │   ├── Models/
+    │   ├── Routes/
+    │   ├── index.js           # Main Express file
+    │   ├── .env               # Backend env file
+    ├── package.json           # Combined package.json or backend’s
+    ├── README.md
+
 
 <!-- ROADMAP -->
 <!-- ## Roadmap

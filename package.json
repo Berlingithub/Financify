@@ -2,19 +2,25 @@
   "name": "financify-main",
   "version": "1.0.0",
   "description": "[![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FIshaan-10%2FFINANCIFY&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=true)](https://hits.seeyoufarm.com) <!-- [![MIT License][license-shield]][license-url] -->",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express-session": "^1.18.1",
     "mongodb": "^6.14.2",
     "mongoose": "^8.12.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
